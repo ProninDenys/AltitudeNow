@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
+
+body {
+  scroll-behavior: smooth;
+  background: linear-gradient(135deg, #e0f2ff, #f8fff4);
+  background-attachment: fixed;
+}
+
+/* 💫 Кастомные анимации */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-in-out both;
+  }
+
+  .animate-pulse-slow {
+    animation: pulseSlow 2.5s infinite;
+  }
+}
+
+/* 🔁 Fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card-fancy {
+    background: radial-gradient(circle at top left, #fefefe, #f5f5f5);
+  }
+
+/* 💥 Pulse Glow */
+@keyframes pulseSlow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.6);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px 5px rgba(37, 99, 235, 0.3);
+  }
+}
+
+/* ✨ Неоновый обводка / glow */
+.card-glow {
+  box-shadow: 0 0 20px rgba(0, 128, 255, 0.2), 0 0 30px rgba(0, 128, 255, 0.1);
+  border: 1px solid rgba(0, 128, 255, 0.15);
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 30px rgba(0, 128, 255, 0.4), 0 0 50px rgba(0, 128, 255, 0.2);
+  border-color: rgba(0, 128, 255, 0.3);
+}
+
+@layer base {
+  html {
+    font-size: 16px;
+  }
+}

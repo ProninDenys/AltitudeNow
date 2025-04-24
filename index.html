@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AltitudeNow — Check Your Elevation</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Check your elevation above sea level in real-time using your browser. Built with love and precision.">
+  <meta name="keywords" content="altitude, elevation, geolocation, height above sea level, browser elevation check">
+  <meta name="author" content="Denys Pronin">
+  <meta property="og:title" content="AltitudeNow – Check your elevation">
+  <meta property="og:description" content="Real-time elevation tracker using your device location.">
+  <meta property="og:type" content="website">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="main.css" />
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="relative bg-gradient-to-br from-[#fdf6ec] via-[#f9efdc] to-[#f4e7cd] min-h-screen flex items-center justify-center px-4 sm:px-6">
+
+  <!-- Угловые иконки — обновлённые -->
+  <div class="absolute top-4 left-4 text-2xl opacity-30 select-none pointer-events-none">🌅</div>
+  <div class="absolute top-4 right-4 text-2xl opacity-30 select-none pointer-events-none">📡</div>
+  <div class="absolute bottom-4 left-4 text-2xl opacity-30 select-none pointer-events-none">🗺️</div>
+  <div class="absolute bottom-4 right-4 text-2xl opacity-30 select-none pointer-events-none">⛰️</div>
+
+  <!-- Основной контент -->
+  <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch justify-center w-full max-w-5xl">
+
+    <!-- Карточка AltitudeNow -->
+    <div class="bg-white card-glow card-fancy rounded-2xl shadow-xl p-8 w-full md:w-1/2 text-center space-y-6 animate-fade-in border border-blue-100 flex flex-col justify-between">
+      <h2 class="text-3xl font-bold text-gray-800 flex items-center justify-center gap-2">
+        🌍 AltitudeNow
+      </h2>
+      <p class="text-gray-600">Find out your current elevation above sea level</p>
+      <button id="getAltitudeBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl transition-all duration-300 shadow-md animate-pulse-slow">
+        Show My Altitude
+      </button>
+      <div id="result" class="text-lg font-medium text-gray-700 mt-4"></div>
+    </div>
+
+    <!-- Карточка с историей -->
+    <div class="bg-white card-glow card-fancy rounded-2xl shadow-xl p-8 w-full md:w-1/2 text-center space-y-6 animate-fade-in border border-blue-100 flex flex-col justify-between" id="historySection" style="opacity: 0;">
+      <h2 class="text-3xl font-bold text-gray-800 flex items-center justify-center gap-2">
+        📊 Elevation History
+      </h2>
+      <div class="h-[250px]">
+        <canvas id="elevationChart" class="w-full h-full"></canvas>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
